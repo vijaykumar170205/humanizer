@@ -1,0 +1,37 @@
+{
+  "name": "humanly-ai-writing-assistant",
+  "version": "1.0.0",
+  "description": "Production-grade Full-Stack MERN AI Writing Assistant platform with natural rewriting, document processing, and multi-tool writing suite.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "node --watch server/server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "test:server": "npm test --prefix server",
+    "dataset:inspect": "npm run dataset:inspect --prefix server",
+    "dataset:build": "npm run dataset:build --prefix server",
+    "dataset:validate": "npm run dataset:validate --prefix server",
+    "dataset:clean": "npm run dataset:clean --prefix server",
+    "dataset:import": "npm run dataset:import --prefix server",
+    "dataset:embed": "npm run dataset:embed --prefix server",
+    "engine:eval": "npm run engine:eval --prefix server"
+  },
+  "keywords": [
+    "ai-writing",
+    "humanizer",
+    "paraphraser",
+    "grammar-checker",
+    "mern",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Humanly Engineering Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}

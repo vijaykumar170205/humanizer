@@ -1,0 +1,124 @@
+{
+  "info": {
+    "_postman_id": "humanly-api-collection-v1",
+    "name": "Humanly AI Writing Assistant API",
+    "description": "Production REST API collection for Humanly AI Writing Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alex Developer\",\n  \"email\": \"alex@example.com\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/auth/register", "host": ["{{baseUrl}}"], "path": ["api", "auth", "register"] }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alex@example.com\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/auth/login", "host": ["{{baseUrl}}"], "path": ["api", "auth", "login"] }
+          }
+        },
+        {
+          "name": "Get Profile (Me)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{jwtToken}}" }],
+            "url": { "raw": "{{baseUrl}}/api/auth/me", "host": ["{{baseUrl}}"], "path": ["api", "auth", "me"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rewrite & Humanizer",
+      "item": [
+        {
+          "name": "Humanize & Rewrite Draft",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"In conclusion, it is important to remember that artificial intelligence delves into modern writing workflows seamlessly.\",\n  \"tone\": \"Conversational\",\n  \"style\": \"Natural\",\n  \"length\": \"same\",\n  \"creativity\": \"Medium\",\n  \"language\": \"English\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/rewrite", "host": ["{{baseUrl}}"], "path": ["api", "rewrite"] }
+          }
+        },
+        {
+          "name": "Paraphrase Text",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Due to the fact that modern algorithms exhibit substantial accuracy, we must implement them.\",\n  \"mode\": \"Academic\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/rewrite/paraphrase", "host": ["{{baseUrl}}"], "path": ["api", "rewrite", "paraphrase"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "item": [
+        {
+          "name": "Grammar Check",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Their is some issues with this sentence in order to utilize it.\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/tools/grammar/check", "host": ["{{baseUrl}}"], "path": ["api", "tools", "grammar", "check"] }
+          }
+        },
+        {
+          "name": "AI Content Detector",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Furthermore, the multifaceted nature of automated synthesis requires comprehensive examination.\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/tools/detector/analyze", "host": ["{{baseUrl}}"], "path": ["api", "tools", "detector", "analyze"] }
+          }
+        },
+        {
+          "name": "Generate Academic Essay",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"topic\": \"Ethical considerations in generative artificial intelligence\",\n  \"academicLevel\": \"Undergraduate / College\",\n  \"targetWordCount\": 600,\n  \"citationStyle\": \"APA 7th Edition\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/tools/essay/generate", "host": ["{{baseUrl}}"], "path": ["api", "tools", "essay", "generate"] }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "jwtToken", "value": "" }
+  ]
+}

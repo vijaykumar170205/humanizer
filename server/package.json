@@ -1,0 +1,47 @@
+{
+  "name": "humanly-server",
+  "version": "1.0.0",
+  "description": "Production-grade backend API service for Humanly AI Writing Assistant",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "server": "node --watch server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/**/*.test.js",
+    "dataset:inspect": "node src/scripts/inspectDatasets.js",
+    "dataset:build": "python build_raid_dataset.py",
+    "dataset:validate": "node src/scripts/validateDataset.js",
+    "dataset:validate-embeddings": "node src/scripts/validateEmbeddings.js",
+    "dataset:clean": "node src/scripts/cleanDataset.js",
+    "dataset:import": "node src/scripts/importDataset.js",
+    "dataset:embed": "node src/scripts/generateEmbeddings.js",
+    "engine:eval": "node src/scripts/evaluateEngine.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "diff": "^7.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "google-auth-library": "^11.0.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.9.0",
+    "marked": "^15.0.7",
+    "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.85.4",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
